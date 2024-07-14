@@ -117,9 +117,11 @@
             <div class="fuego"></div>
           </div>
         </div>
-        <div class="HBD-text">
+        <div class="HBD-text">  
           <p class="HBD">{{^HBD_MSG}}</p>
           <p class="nickname">{{^NICKNAME}}</p>
+          <a class="nickname" href="http://127.0.0.1:5500/src/next.html">Click Here</a>
+          <!-- <a href="#" class="test-link">Test</a> -->
         </div>
       </div>
 
@@ -134,7 +136,7 @@
     <div class="giftroom">
       <p class="gift-text">Wow! That was something weird.</p>
       <p class="gift-text">Hey look! There's a gift for you..</p>
-      <p class="gift-text">C'mon, let's open it and see what's in there!</p>
+      <p class="gift-text">Cecil, let's open it and see what's in there!</p>
     </div>
 
     <div class="hallway">
@@ -160,5 +162,35 @@
 
     <div class="btn switch"></div>
     <div class="btn-ref"></div>
+    <script>
+      const hbdText = document.querySelector('.HBD-text');
+      if (hbdText) {
+        console.log('Element found:', hbdText);
+        hbdText.addEventListener('click', function() {
+          // alert('You will be redirected to the local server.');
+          console.log('Opening local server...');
+          window.location.href = 'http://127.0.0.1:5500';
+        });
+      } else {
+        console.log('Element not found');
+      }
+
+      const testLink = document.querySelector('.nickname');
+      testLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default action
+        console.log('test');
+      });
+    </script>
+     <style>
+      
+      .HBD-text a.nickname {
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 5px;
+        position: relative;
+        z-index: 1000;
+        pointer-events: auto;
+      }
+    </style>
   </body>
 </html>
